@@ -2159,3 +2159,32 @@ solutions=solve(numheads,numlegs)
 print(solutions)
 ```
 
+### Question 101
+A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+
+Find the largest palindrome made from the product of two 3-digit numbers.
+
+Save the result in the file 102-result
+Your file should contain the exact result, no new line, no extra space
+
+Hint:
+Use for loop to iterate all possible solutions.
+
+Solution:
+```python
+def is_palindrome(num):
+    return str(num) == str(num)[::-1]
+
+largest_palindrome = 0
+
+for i in range(100, 1000):
+    for j in range(i, 1000):
+        product = i * j
+        if is_palindrome(product) and product > largest_palindrome:
+            largest_palindrome = product
+#print(largest_palindrome)
+with open("102-result", "w") as file:
+    file.write(str(largest_palindrome))
+print(largest_palindrome)
+```
+
